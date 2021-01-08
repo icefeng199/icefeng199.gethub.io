@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>JSJSJSJSJSJSJS</title>
+    <link href="/2020/12/25/JavaScript_1/"/>
+    <url>/2020/12/25/JavaScript_1/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-Javascript新坑">1.Javascript新坑</h3><ul><li><p>历史</p><blockquote><p>名字：Mocha–&gt;LiveScript–&gt;JavaScript</p></blockquote></li><li><p>前端三大件</p><blockquote><p>HTML：网页的骨架</p><p>CSS：网页的衣服</p><p>JavaScript：网页的灵魂</p></blockquote><a id="more"></a></li><li><p>20/80原则</p><blockquote><p>数据结构，运算符</p><p>条件判断循环</p><p>函数，面向对象</p><p>NodeJS）</p><p>JSON,AJAX,RESTful API</p><p>全栈爬虫</p></blockquote></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>JavaScript</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>简单的insanity</title>
     <link href="/2020/02/16/ctf_1/"/>
     <url>/2020/02/16/ctf_1/</url>
