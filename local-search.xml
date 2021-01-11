@@ -4,11 +4,30 @@
   
   
   <entry>
-    <title>每日Todo列表</title>
+    <title>信息收集_常见的搜集</title>
+    <link href="/2021/01/11/nu1l-book-dirsearch/"/>
+    <url>/2021/01/11/nu1l-book-dirsearch/</url>
+    
+    <content type="html"><![CDATA[<h3 id="目录扫描工具dirsearch"><a class="header-anchor" href="#目录扫描工具dirsearch"></a>目录扫描工具dirsearch</h3><p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/nu1l_information_1.png" srcset="/img/loading.gif" alt=""></p><h3 id="泄露信息"><a class="header-anchor" href="#泄露信息"></a>泄露信息</h3><ol><li><a href="http://192.168.186.131:90/robots.txt%E6%96%87%E4%BB%B6%E6%89%BE%E5%88%B0flag_1%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">http://192.168.186.131:90/robots.txt文件找到flag_1文件</a></li></ol><p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/nu1l_information_1.png" srcset="/img/loading.gif" alt=""></p><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gcode">fla<span class="hljs-name">g1</span>:<span class="hljs-symbol">n1</span>book&#123;i<span class="hljs-symbol">nfo_1</span><br></code></pre></td></tr></table></figure><ol start="2"><li>目录扫描找到gedit临时备份（gedit会在保存文件后自动生成 文件名+~）</li></ol><p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/nu1l_information_2.png" srcset="/img/loading.gif" alt=""></p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">flag2:</span>s_v3ry_im<br></code></pre></td></tr></table></figure><ol start="3"><li>.index.php.swp文件是ssh登陆时候未保存，直接退出，vim将当前内容dump到这个文件</li></ol><p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/nu1l_information_3.png" srcset="/img/loading.gif" alt=""></p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">flag3:</span>p0rtant_hack&#125;<br></code></pre></td></tr></table></figure><p><strong>----------------------------------------综上-------------------------------------------</strong></p><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs smali">flag:n1book&#123;info_1s_v3ry_imp0rtant_hack&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Information</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>每日Todo列表(2021/01/11)</title>
     <link href="/2021/01/11/Todo_1_11/"/>
     <url>/2021/01/11/Todo_1_11/</url>
     
-    <content type="html"><![CDATA[<h3 id="0-早上-7-00-8-00"><a class="header-anchor" href="#0-早上-7-00-8-00"></a>0.早上(7:00-8:00)</h3><ol><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 熟练掌握信息泄露不会读的单词；</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习昨天docker/docker compose 的使用和侧重点</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习Linux常用指令完成Linux一些测试题</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习JavaScript的语法</li></ul></li></ol><h3 id="1-上午-9-00-12-00"><a class="header-anchor" href="#1-上午-9-00-12-00"></a>1.上午(9:00-12:00)</h3><ol><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 做两道信息收集的CTF练习题并且思考原理和方法（NI1L）</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习Python的算法和列表相关并且做题（小甲鱼）</li></ul></li><li><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 今天你专注了吗 ¿</li></ul></li></ol><h3 id="2-中午"><a class="header-anchor" href="#2-中午"></a>2.中午</h3><blockquote><p>做Todo_List的第一天</p><p>检查上午完成情况，进行调整和改进</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="0-早上-7-00-8-00"><a class="header-anchor" href="#0-早上-7-00-8-00"></a>0.早上(7:00-8:00)</h3><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 熟练掌握信息泄露不会读的单词；</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习昨天docker/docker compose 的使用和侧重点</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习Linux常用指令完成Linux一些测试题</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 复习JavaScript的语法</li></ul><h3 id="1-上午-9-00-12-00"><a class="header-anchor" href="#1-上午-9-00-12-00"></a>1.上午(9:00-12:00)</h3><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 做两道信息收集的CTF练习题并且思考原理和方法（NI1L）</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习Python的算法和列表相关并且做题（小甲鱼）</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 今天你专注了吗 ¿</li></ul><h3 id="2-中午"><a class="header-anchor" href="#2-中午"></a>2.中午</h3><blockquote><p>做Todo_List的第一天</p><p>检查上午完成情况，进行调整和改进</p></blockquote>]]></content>
     
     
     
