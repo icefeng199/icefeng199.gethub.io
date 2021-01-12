@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>每日Todo列表(2021/01/12) - IceFeng</title>
+  <title>git_study - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="每日Todo列表(2021/01/12)">
+            <span class="h2" id="subtitle" title="git_study">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-12 08:00" pubdate>
-        2021年1月12日 早上
+      <time datetime="2021-01-12 16:39" pubdate>
+        2021年1月12日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      183 字
+      782 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -224,46 +224,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">每日Todo列表(2021/01/12)</h1>
+            <h1 style="display: none">git_study</h1>
             
             <div class="markdown-body">
-              <h3 id="0-上午"><a class="header-anchor" href="#0-上午"></a>0.上午</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 学习Git的目录以及Git生成和提交整个流程</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 复习Dirsearch的使用</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习并且弥补SQL注入漏洞方面的方法和概念</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习并且复习JavaScript的语法</li>
-</ul>
-<a id="more"></a>
-<h3 id="1-下午"><a class="header-anchor" href="#1-下午"></a>1.下午</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成SQLi注入靶场和书中的CTF试题（NI1L）</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 继续学习Python的进阶相关的用法（小甲鱼）</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习PHP并且做一些后端的小东西</li>
-</ul>
-<h3 id="2-晚上"><a class="header-anchor" href="#2-晚上"></a>2.晚上</h3>
-<ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 适当的娱乐</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 开始阅读一些书</li>
-</ul>
-<h3 id="反思"><a class="header-anchor" href="#反思"></a>反思</h3>
+              <h3 id="0x00-Git的诞生"><a class="header-anchor" href="#0x00-Git的诞生"></a>0x00 Git的诞生</h3>
 <blockquote>
-<p>QAQ，计划崩坏的一天，很多事情无意间就打乱了节奏</p>
-<p>也是蛮有意义的一天，听了许多故事，从中理解到一些思想上的东西</p>
-<p>适当减少一些计划，去高质量的完成</p>
+<p>事情是这样的，在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码！</p>
+<p>你也许会想，为什么Linus不把Linux代码放到版本控制系统里呢？不是有CVS、SVN这些免费的版本控制系统吗？因为Linus坚定地反对CVS和SVN，这些集中式的版本控制系统不但速度慢，而且必须联网才能使用。有一些商用的版本控制系统，虽然比CVS、SVN好用，但那是付费的，和Linux的开源精神不符。</p>
+<p>不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，社区的弟兄们也对这种方式表达了强烈不满，于是Linus选择了一个商业的版本控制系统BitKeeper，BitKeeper的东家BitMover公司出于人道主义精神，授权Linux社区免费使用这个版本控制系统。</p>
+<p>安定团结的大好局面在2005年就被打破了，原因是Linux社区牛人聚集，不免沾染了一些梁山好汉的江湖习气。开发Samba的Andrew试图破解BitKeeper的协议（这么干的其实也不只他一个），被BitMover公司发现了（监控工作做得不错！），于是BitMover公司怒了，要收回Linux社区的免费使用权。</p>
+<p>Linus可以向BitMover公司道个歉，保证以后严格管教弟兄们，嗯，这是不可能的。实际情况是这样的：</p>
+<p>Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！牛是怎么定义的呢？大家可以体会一下。</p>
 </blockquote>
+<h3 id="0x01-Centos7安装-使用"><a class="header-anchor" href="#0x01-Centos7安装-使用"></a>0x01 Centos7安装&amp;使用</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install git<br><span class="hljs-comment">#配置基本信息</span><br>$ git config --global user.name <span class="hljs-string">"icefeng199"</span><br>$ git config --global user.email <span class="hljs-string">"admin@icefeng.cc"</span><br>$ git config --list<br><span class="hljs-comment">#创建版本库 又名仓库 英文名叫：repository</span><br>$ git init <span class="hljs-comment">#目录变repository,当前目录多了一个.git 要ls -a</span><br><span class="hljs-comment">#文件添加到版本库 </span><br><span class="hljs-comment">#PS:所有的版本控制系统 只能追踪文本文件的具体变化 二进制文件只能追踪大小，无法追踪具体变化</span><br>$ git add fisrt.txt<br>$ git commit -m <span class="hljs-string">"wrote a fisrt get file"</span><br><span class="hljs-comment">#修改fisrt.txt文件</span><br>$ git status <span class="hljs-comment">#查看当前仓库的状态 </span><br>$ git diff <span class="hljs-comment">#查看当前修改了什么内容</span><br>$ git <span class="hljs-built_in">log</span> <span class="hljs-comment">#显示最近到最远提交的日志 --pretty=oneline</span><br></code></pre></td></tr></table></figure>
+<h3 id="0x02-Git的文件夹分析"><a class="header-anchor" href="#0x02-Git的文件夹分析"></a>0x02.Git的文件夹分析</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">├── HEAD   #映射到ref引用，能够找到下一次commit的前一次哈希值<br>├── config # 存放git的一些信息<br>├── description #仓库的描述信息，主要给gitweb等git托管系统使用<br>├── hooks #Shell脚本<br>├── index #暂存区（stage），是一个二进制文件<br>├── info #git仓库的一些信息<br>│   └── exclude<br>├── objects # 存放所有git对象的地方<br>│   ├── 0c<br>│   │   └── 14454dd8d472ef27843ac8c86bdba161c27a03<br>│   ├── info<br>│   └── pack<br>└── refs<br>    ├── heads #所有本地分支文件<br>    └── tags #文件夹是使用git stash命令时，会将生成的git对象的哈希值存储到stash文件里<br></code></pre></td></tr></table></figure>
+<p>" srcset="/img/loading.gif" srcset="/img/loading.gif" srcset="/img/loading.gif<img src="" alt=""></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Todo/">Todo</a>
-                    
-                  </div>
                 
                 
               </div>
@@ -275,9 +257,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/12/git-study/">
+                      <a href="/2021/01/13/Todo_1_13/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git_study</span>
+                        <span class="hidden-mobile">每日Todo列表(2021/01/13)</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -285,8 +267,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/11/nu1l-book-dirsearch/">
-                        <span class="hidden-mobile">信息收集_常见的搜集</span>
+                      <a href="/2021/01/12/Todo_1_12/">
+                        <span class="hidden-mobile">每日Todo列表(2021/01/12)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
