@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>每日Todo列表(2021/01/13) - IceFeng</title>
+  <title>Metasploit学习 - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="每日Todo列表(2021/01/13)">
+            <span class="h2" id="subtitle" title="Metasploit学习">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-13 07:03" pubdate>
-        2021年1月13日 早上
+      <time datetime="2021-01-13 22:30" pubdate>
+        2021年1月13日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      160 字
+      448 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -224,36 +224,43 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">每日Todo列表(2021/01/13)</h1>
+            <h1 style="display: none">Metasploit学习</h1>
             
             <div class="markdown-body">
-              <h3 id="0x00-开心的事情🙃"><a class="header-anchor" href="#0x00-开心的事情🙃"></a>0x00 开心的事情🙃</h3>
-<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/TODO/todo_1_13_1.png" srcset="/img/loading.gif" alt=""></p>
-<p><strong>知识的学习肯定是一部分，更好的一面应该是有交流学习的空间和话题</strong></p>
-<a id="more"></a>
-<h3 id="0x01-今天的任务😎"><a class="header-anchor" href="#0x01-今天的任务😎"></a>0x01 今天的任务😎</h3>
-<ul class="contains-task-list">
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习并且弥补SQL注入漏洞方面的方法和概念</p>
+              <h3 id="0x01-Metasploit渗透测试框架"><a class="header-anchor" href="#0x01-Metasploit渗透测试框架"></a>0x01 Metasploit渗透测试框架</h3>
+<p>​	Metasploit是-个渗透测试平台,使你能够查找,利用和验证漏洞。该平台包括Metasploit框架及<br>
+其商业对手，如Metasploit Pro。Metasploit是一个免费，可下载的框架，通过他可以很容易的对计算机软件漏洞实施攻击。<a id="more"></a></p>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/metasploit_1.png" srcset="/img/loading.gif" alt=""></p>
+<ol>
+<li>
+<p>基础库：metasploit 基础库文件位于源码根目录路径下的 libraries 目录中<br>
+Rex,framework-core 和 framework-base 三部分。</p>
+<ul>
+<li>Rex 是整个框架所依赖的最基础的一些组件，如包装的网络套接字、网络应用协议客户端与服务端实现、日志子系统、渗透攻击支持例程、PostgreSQL 以及 MySQL 数据库支持等；</li>
+<li>framework-core 库负责实现所有与各种类型的上层模块及插件的交互接口；</li>
+<li>framework-base 库扩展了 framework-core，提供更加简单的包装例程，并为处理框架各个方面的功能提供了一些功能类，用于支持用户接口与功能程序调用框架本身功能及框架集成模块；</li>
+</ul>
 </li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习并且复习JavaScript的语法</p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成SQLi注入靶场和书中的CTF试题（NI1L）</p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 继续学习Python的进阶相关的用法（小甲鱼）</p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习PHP并且做一些后端的小东西</p>
-</li>
-<li class="task-list-item">
-<p><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成河北网络安全高校联盟课程当天的任务</p>
+<li>
+<p>模块：模块组织按照不同的用途分为 6 种类型的模块（Modules）：</p>
+<ul>
+<li>分为辅助模块（Aux)</li>
+<li>渗透攻击模块（Exploits)</li>
+<li>后渗透攻击模块（Post)</li>
+<li>攻击载荷模块（payloads)</li>
+<li>编码器模块（Encoders)</li>
+<li>空指令模块（Nops)
+<ul>
+<li>注：payload 又称为攻击载荷，主要是用来建立目标机与攻击机稳定连接的，可返回 shell，也可以进行程序注入等</li>
+</ul>
 </li>
 </ul>
-<h3 id="0x02-来点🐔汤吧"><a class="header-anchor" href="#0x02-来点🐔汤吧"></a>0x02 来点🐔汤吧</h3>
-<p>周总理说过：加紧学习，抓住中心，宁精勿杂，宁专勿多。</p>
+</li>
+<li>
+<p>插件：插件能够扩充框架的功能，或者组装已有功能构成高级特性的组件。</p>
+<p>插件可以集成现有的一些外部安全工具，如 Nessus、OpenVAS 漏洞扫描器等，为用户接口提供一些新的功能。</p>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -263,7 +270,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/TODO/">TODO</a>
+                      <a class="hover-with-bg" href="/categories/Web%E6%B8%97%E9%80%8F/">Web渗透</a>
                     
                   </div>
                 
@@ -281,8 +288,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/12/git-study/">
-                        <span class="hidden-mobile">git_study</span>
+                      <a href="/2021/01/13/Todo_1_13_14/">
+                        <span class="hidden-mobile">每日Todo列表(2021/01/13+14)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
