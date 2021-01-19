@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>Git_study - IceFeng</title>
+  <title>NU1l_CTF_信息收集_git泄露 - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git_study">
+            <span class="h2" id="subtitle" title="NU1l_CTF_信息收集_git泄露">
               
             </span>
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      778 字
+      986 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      11
        分钟
     </span>
   
@@ -224,7 +224,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git_study</h1>
+            <h1 style="display: none">NU1l_CTF_信息收集_git泄露</h1>
             
             <div class="markdown-body">
               <h3 id="0x00-Git的诞生"><a class="header-anchor" href="#0x00-Git的诞生"></a>0x00 Git的诞生</h3>
@@ -236,22 +236,56 @@
 <p>Linus可以向BitMover公司道个歉，保证以后严格管教弟兄们，嗯，这是不可能的。实际情况是这样的：</p>
 <p>Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！牛是怎么定义的呢？大家可以体会一下。</p>
 </blockquote>
-<h3 id="0x01-Centos7安装-使用"><a class="header-anchor" href="#0x01-Centos7安装-使用"></a>0x01 Centos7安装&amp;使用</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ yum install git<br><span class="hljs-comment">#配置基本信息</span><br>$ git config --global user.name <span class="hljs-string">"icefeng199"</span><br>$ git config --global user.email <span class="hljs-string">"admin@icefeng.cc"</span><br>$ git config --list<br><span class="hljs-comment">#创建版本库 又名仓库 英文名叫：repository</span><br>$ git init <span class="hljs-comment">#目录变repository,当前目录多了一个.git 要ls -a</span><br><span class="hljs-comment">#文件添加到版本库 </span><br><span class="hljs-comment">#PS:所有的版本控制系统 只能追踪文本文件的具体变化 二进制文件只能追踪大小，无法追踪具体变化</span><br>$ git add fisrt.txt<br>$ git commit -m <span class="hljs-string">"wrote a fisrt get file"</span><br><span class="hljs-comment">#修改fisrt.txt文件</span><br>$ git status <span class="hljs-comment">#查看当前仓库的状态 </span><br>$ git diff <span class="hljs-comment">#查看当前修改了什么内容</span><br>$ git <span class="hljs-built_in">log</span> <span class="hljs-comment">#显示最近到最远提交的日志 --pretty=oneline</span><br></code></pre></td></tr></table></figure>
+<h3 id="0x01-Git安装-基本使用"><a class="header-anchor" href="#0x01-Git安装-基本使用"></a>0x01 Git安装&amp;基本使用</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#安装git</span><br>$ yum install git<br><br><span class="hljs-comment">#配置基本信息</span><br>$ git config --global user.name <span class="hljs-string">"icefeng199"</span><br>$ git config --global user.email <span class="hljs-string">"admin@icefeng.cc"</span><br>$ git config --list<br><br><span class="hljs-comment">#创建版本库 又名仓库 英文名叫：repository</span><br>$ git init <span class="hljs-comment">#目录变repository,当前目录多了一个.git 要ls -a</span><br><br><br><span class="hljs-comment">#文件添加到版本库 </span><br><span class="hljs-comment">#PS:所有的版本控制系统 只能追踪文本文件的具体变化 二进制文件只能追踪大小，无法追踪具体变化</span><br>$ git add fisrt.txt<br>$ git commit -m <span class="hljs-string">"wrote a fisrt get file"</span><br><span class="hljs-comment">#修改fisrt.txt文件</span><br><br>$ git status <span class="hljs-comment">#查看当前仓库的状态 </span><br>$ git diff <span class="hljs-comment">#查看当前修改了什么内容</span><br>$ git <span class="hljs-built_in">log</span> <span class="hljs-comment">#显示最近到最远提交的日志 --pretty=oneline 单行查看</span><br><br>$ git reset --hard HEAD^ <span class="hljs-comment">#退回上一个版本 HEAD是指当前版本</span><br>$ git reset --hard commit_id <span class="hljs-comment">#可以在任意版本之间穿梭</span><br></code></pre></td></tr></table></figure>
 <p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/git_learn_1.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="0x02-Git的文件夹分析"><a class="header-anchor" href="#0x02-Git的文件夹分析"></a>0x02.Git的文件夹分析</h3>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">├── HEAD   #映射到ref引用，能够找到下一次commit的前一次哈希值<br>├── config # 存放git的一些信息<br>├── description #仓库的描述信息，主要给gitweb等git托管系统使用<br>├── hooks #Shell脚本<br>├── index #暂存区（stage），是一个二进制文件<br>├── info #git仓库的一些信息<br>│   └── exclude<br>├── objects # 存放所有git对象的地方<br>│   ├── 0c<br>│   │   └── 14454dd8d472ef27843ac8c86bdba161c27a03<br>│   ├── info<br>│   └── pack<br>└── refs<br>    ├── heads #所有本地分支文件<br>    └── tags #文件夹是使用git stash命令时，会将生成的git对象的哈希值存储到stash文件里<br></code></pre></td></tr></table></figure>
+<h3 id="0x3-Git泄露获取"><a class="header-anchor" href="#0x3-Git泄露获取"></a>0x3 Git泄露获取</h3>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/git_learn_2.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="1-GitHack的使用"><a class="header-anchor" href="#1-GitHack的使用"></a>1.GitHack的使用</h4>
+<blockquote>
+<p>GitHack是一个.git泄露利用脚本，通过泄露的.git文件夹下的文件，重建还原工程源代码。</p>
+<p>渗透测试人员、攻击者，可以进一步审计代码，挖掘：文件上传，SQL注射等web安全漏洞。</p>
+</blockquote>
+<ul>
+<li>用法</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python2 GitHack.py http://www.openssl.org/.git/<br></code></pre></td></tr></table></figure>
+<ul>
+<li>原理
+<ul>
+<li>解析.git/index文件，找到工程中所有的： ( 文件名，文件sha1 )</li>
+<li>去.git/objects/ 文件夹下下载对应的文件</li>
+<li>zlib解压文件，按原始的目录结构写入源代码</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Githack-一把梭"><a class="header-anchor" href="#2-Githack-一把梭"></a>2.Githack 一把梭</h4>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/git_learn_4.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/git_learn_3.png" srcset="/img/loading.gif" alt=""></p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf">git <span class="hljs-built_in">log</span> 查看之前的提交，并且回到上个版本看有无<span class="hljs-built_in">flag</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/git_learn_2.png" srcset="/img/loading.gif" alt=""></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
+                    
+                      <a class="hover-with-bg" href="/categories/CTF/Web%E6%B8%97%E9%80%8F/">Web渗透</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web-tools/">Web_tools</a>
+                      <a class="hover-with-bg" href="/tags/Git%E6%B3%84%E9%9C%B2/">Git泄露</a>
                     
                   </div>
                 
@@ -264,7 +298,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/13/Todo_1_13_14/">
+                      <a href="/2021/01/13/Todo_1_13_18/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">每日Todo列表(2021/01/13-18)</span>
                         <span class="visible-mobile">上一篇</span>
