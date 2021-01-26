@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>Metasploit学习 - IceFeng</title>
+  <title>Ctfhub_SQL注入 - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Metasploit学习">
+            <span class="h2" id="subtitle" title="Ctfhub_SQL注入">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-13 22:30" pubdate>
-        2021年1月13日 晚上
+      <time datetime="2021-01-20 17:37" pubdate>
+        2021年1月20日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      448 字
+      331 字
     </span>
   
 
@@ -224,43 +224,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Metasploit学习</h1>
+            <h1 style="display: none">Ctfhub_SQL注入</h1>
             
             <div class="markdown-body">
-              <h3 id="0x01-Metasploit渗透测试框架"><a class="header-anchor" href="#0x01-Metasploit渗透测试框架"></a>0x01 Metasploit渗透测试框架</h3>
-<p>​	Metasploit是-个渗透测试平台,使你能够查找,利用和验证漏洞。该平台包括Metasploit框架及<br>
-其商业对手，如Metasploit Pro。Metasploit是一个免费，可下载的框架，通过他可以很容易的对计算机软件漏洞实施攻击。<a id="more"></a></p>
-<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/nu1lbook/metasploit_1.png" srcset="/img/loading.gif" alt=""></p>
+              <h3 id="0x01-SQL注入的基础"><a class="header-anchor" href="#0x01-SQL注入的基础"></a>0x01 SQL注入的基础</h3>
+<h4 id="1-注入类型"><a class="header-anchor" href="#1-注入类型"></a>1.注入类型</h4>
 <ol>
-<li>
-<p>基础库：metasploit 基础库文件位于源码根目录路径下的 libraries 目录中<br>
-Rex,framework-core 和 framework-base 三部分。</p>
-<ul>
-<li>Rex 是整个框架所依赖的最基础的一些组件，如包装的网络套接字、网络应用协议客户端与服务端实现、日志子系统、渗透攻击支持例程、PostgreSQL 以及 MySQL 数据库支持等；</li>
-<li>framework-core 库负责实现所有与各种类型的上层模块及插件的交互接口；</li>
-<li>framework-base 库扩展了 framework-core，提供更加简单的包装例程，并为处理框架各个方面的功能提供了一些功能类，用于支持用户接口与功能程序调用框架本身功能及框架集成模块；</li>
-</ul>
-</li>
-<li>
-<p>模块：模块组织按照不同的用途分为 6 种类型的模块（Modules）：</p>
-<ul>
-<li>分为辅助模块（Aux)</li>
-<li>渗透攻击模块（Exploits)</li>
-<li>后渗透攻击模块（Post)</li>
-<li>攻击载荷模块（payloads)</li>
-<li>编码器模块（Encoders)</li>
-<li>空指令模块（Nops)
-<ul>
-<li>注：payload 又称为攻击载荷，主要是用来建立目标机与攻击机稳定连接的，可返回 shell，也可以进行程序注入等</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>插件：插件能够扩充框架的功能，或者组装已有功能构成高级特性的组件。</p>
-<p>插件可以集成现有的一些外部安全工具，如 Nessus、OpenVAS 漏洞扫描器等，为用户接口提供一些新的功能。</p>
-</li>
+<li>UNION query SQL injection  联合注入</li>
+<li>Error-based SQL injiecttion 报错注入</li>
+<li>Boolean-based blind SQL injection 布尔盲注</li>
+<li>Time-based blind SQL injection   时间盲注</li>
+<li>Stack queries SQL injection 堆叠注入</li>
 </ol>
+<h4 id="2-注入点类型"><a class="header-anchor" href="#2-注入点类型"></a>2.注入点类型</h4>
+<ol>
+<li>GET 数据</li>
+<li>POST 数据</li>
+<li>HTTP 请求报文</li>
+<li>Cookie 数据</li>
+</ol>
+<h4 id="3-常用函数和参数"><a class="header-anchor" href="#3-常用函数和参数"></a>3.常用函数和参数</h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs mysql">version()<br>database()<br>user()<br>current_user()<br>system_user()<br>@@datadir            #数据库路径  <br>@@version_compile_os #操作系统版本<br>length()<br>substring()<br>substr()<br>mid(String,start_local_1,)<br>left()<br>concat()          #没有分隔符<br>concat_ws()       #有分隔符<br>group_concat()    #连接一个组的字符串<br>ord()			#返回ASCII码<br>ascii()			#和ord相同<br>hex()			#取16进制<br>unhex()			#反<br>md5()			#取md5<br>floor()			#向下取整<br>round()			#取4,5的整数<br>rand()			#返回0-1之间的数字<br>load_file()		#读取文件，返回字符串<br>sleep()			#延迟<br>if(true,t,f)	#if判断 如果成立执行t,不成立执行f<br>find_in_set()	#返回字符串在字符串列表中的位置<br>benchmark()		#指定语句执行的次数<br>name_const()	#返回表结果<br></code></pre></td></tr></table></figure>
+<h3 id="4-思路"><a class="header-anchor" href="#4-思路"></a>4.思路</h3>
+<h4 id="前提是存在SQL注入"><a class="header-anchor" href="#前提是存在SQL注入"></a>前提是存在SQL注入</h4>
+<hr>
+<ol>
+<li><strong>回显</strong> --&gt; <strong>联合查询</strong></li>
+<li><strong>报错</strong> --&gt; <strong>报错注入</strong></li>
+<li><strong>布尔类型状态</strong>–&gt; <strong>布尔注入and 延时注入</strong></li>
+<li><strong>其他</strong> --&gt; <strong>Cookie注入</strong></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#报错注入<br>select count (*) from information _schema.tables group by concat ((此处加入执行语句),0x7e,floor (rand (0)*2));<br>select extractvalue (1,concat (0x7e,(此处加入执行语句),0x7e));<br>select updatexml (1,concat (0x7e,(此处加入执行语句),0x7e),1);<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -280,7 +274,7 @@ Rex,framework-core 和 framework-base 三部分。</p>
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Web-tools/">Web_tools</a>
+                      <a class="hover-with-bg" href="/tags/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a>
                     
                   </div>
                 
@@ -293,18 +287,12 @@ Rex,framework-core 和 framework-base 三部分。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/14/qwb-easy-sql/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">从2019强网杯[随便注]学习堆叠注入</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/13/Todo_1_13_18/">
-                        <span class="hidden-mobile">每日Todo列表(2021/01/13-18)</span>
+                      <a href="/2021/01/19/http-base/">
+                        <span class="hidden-mobile">HTTP基础</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
