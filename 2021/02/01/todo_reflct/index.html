@@ -17,7 +17,7 @@
   <meta name="description" content="IceFeng的笔记本">
   <meta name="author" content="IceFeng">
   <meta name="keywords" content="icefeng,icefeng.cc,crack,Android,Web">
-  <title>Ctfhub_SQL注入 - IceFeng</title>
+  <title>Todo近一个月的反思和总结 - IceFeng</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Ctfhub_SQL注入">
+            <span class="h2" id="subtitle" title="Todo近一个月的反思和总结">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-20 17:37" pubdate>
-        2021年1月20日 下午
+      <time datetime="2021-02-01 10:13" pubdate>
+        2021年2月1日 上午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      331 字
+      939 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      9
        分钟
     </span>
   
@@ -224,37 +224,48 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Ctfhub_SQL注入</h1>
+            <h1 style="display: none">Todo近一个月的反思和总结</h1>
             
             <div class="markdown-body">
-              <h3 id="0x01-SQL注入的基础"><a class="header-anchor" href="#0x01-SQL注入的基础"></a>0x01 SQL注入的基础</h3>
-<h4 id="1-注入类型"><a class="header-anchor" href="#1-注入类型"></a>1.注入类型</h4>
-<ol>
-<li>UNION query SQL injection  联合注入</li>
-<li>Error-based SQL injiecttion 报错注入</li>
-<li>Boolean-based blind SQL injection 布尔盲注</li>
-<li>Time-based blind SQL injection   时间盲注</li>
-<li>Stack queries SQL injection 堆叠注入</li>
-</ol>
-<h4 id="2-注入点类型"><a class="header-anchor" href="#2-注入点类型"></a>2.注入点类型</h4>
-<ol>
-<li>GET 数据</li>
-<li>POST 数据</li>
-<li>HTTP 请求报文</li>
-<li>Cookie 数据</li>
-</ol>
-<h4 id="3-常用函数和参数"><a class="header-anchor" href="#3-常用函数和参数"></a>3.常用函数和参数</h4>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs mysql">version()<br>database()<br>user()<br>current_user()<br>system_user()<br>@@datadir            #数据库路径  <br>@@version_compile_os #操作系统版本<br>length()<br>substring()<br>substr()<br>mid(String,start_local_1,)<br>left()<br>concat()          #没有分隔符<br>concat_ws()       #有分隔符<br>group_concat()    #连接一个组的字符串<br>ord()			#返回ASCII码<br>ascii()			#和ord相同<br>hex()			#取16进制<br>unhex()			#反<br>md5()			#取md5<br>floor()			#向下取整<br>round()			#取4,5的整数<br>rand()			#返回0-1之间的数字<br>load_file()		#读取文件，返回字符串<br>sleep()			#延迟<br>if(true,t,f)	#if判断 如果成立执行t,不成立执行f<br>find_in_set()	#返回字符串在字符串列表中的位置<br>benchmark()		#指定语句执行的次数<br>name_const()	#返回表结果<br></code></pre></td></tr></table></figure>
-<h3 id="4-思路"><a class="header-anchor" href="#4-思路"></a>4.思路</h3>
-<h4 id="前提是存在SQL注入"><a class="header-anchor" href="#前提是存在SQL注入"></a>前提是存在SQL注入</h4>
-<hr>
-<ol>
-<li><strong>回显</strong> --&gt; <strong>联合查询</strong></li>
-<li><strong>报错</strong> --&gt; <strong>报错注入</strong></li>
-<li><strong>布尔类型状态</strong>–&gt; <strong>布尔注入and 延时注入</strong></li>
-<li><strong>其他</strong> --&gt; <strong>Cookie注入</strong></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">#报错注入<br>select count (*) from information _schema.tables group by concat ((此处加入执行语句),0x7e,floor (rand (0)*2));<br>select extractvalue (1,concat (0x7e,(此处加入执行语句),0x7e));<br>select updatexml (1,concat (0x7e,(此处加入执行语句),0x7e),1);<br></code></pre></td></tr></table></figure>
+              <h2 id="0x00-近一个月去完成的事"><a class="header-anchor" href="#0x00-近一个月去完成的事"></a>0x00 近一个月去完成的事</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 真正的感受到参加CTF那种热血和趣味</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 接触到更多志同道合的小伙伴</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> 有规律的作息</li>
+</ul>
+<h3 id="0x01-杂谈"><a class="header-anchor" href="#0x01-杂谈"></a>0x01 杂谈</h3>
+<h4 id="在自我管理方面："><a class="header-anchor" href="#在自我管理方面："></a>在自我管理方面：</h4>
+<p> Todo确实可以提高我自己的专注度，但是在设置Todo的目标上还要做一些减法，看起来Todo的一个简单小目标，完成的过程中总会遇到各种坑，过多的目标和踩坑拖延时间，会导致自己变的焦虑；</p>
+<p> 有趣的恶性循环：</p>
+<p><strong>过度的目标</strong> ➔ <strong>焦虑</strong> ➔ <strong>失眠</strong> ➔ <strong>晚睡早起</strong> ➔ <strong>寻找解决方法（刷B站，牛客，知乎等）</strong> ➔ <strong>重新设立目标（上一个未完成）</strong></p>
+<h4 id="在学习-专注方面："><a class="header-anchor" href="#在学习-专注方面："></a>在学习&amp;专注方面：</h4>
+<p>  学习了一段时间想检验一下自己，看到默安在招实习生，然后就想尝试一下，不得不说内推的效率真的高，第一天投简历，第二天就直接来了两面，这次有进步的地方，比前几次面试心理上放得开很多说话也流畅了许多，想起来第一次面试的时候，说话都磕磕绊绊，异常紧张和兴奋。</p>
+<p> 有趣的面试问题：</p>
+<p> 一面问我，“如何最快的检测一个网站是否存在SQL注入？” 心里想：那肯定是Sqlmap一把梭啊，手动注入的话，查看网站CMS有无现成源码，然后代码审计关键登陆，我当时说了个就加特殊符号看有无报错😅。</p>
+<p> 二面老哥，很着急的样子，讲了一下XSS反射性，存储型的原理和危害，然后问我区别是什么 ➔ 一句话总结：<strong>存储型 XSS 的恶意代码存在数据库里，反射型 XSS 的恶意代码存在 URL 里</strong>。我当时虚头巴脑的讲了一堆危害不同？😐现在反思一下，学习完应该多总结一些学过的东西，不然跟别人讲出来也是乱七八糟的。</p>
+<p> 后面就是SQL注入，CSRF原理啊，巴拉巴拉，然后问我 CSRF和XSS反射性的区别是什么？我当时愣了1s 说xss是通过浏览器，CSRF是通过URL？回想一下说的不对。一句话总结：<strong>XSS 利用的是网站对用户（输入）的信任，CSRF 利用的是网站对用户网页浏览器的信任</strong> 后面说什么让我走流程，然后就没了音讯，盲猜GG了🤪。</p>
+<ul>
+<li>
+<p>XSS反射性：<strong>恶意脚本本身是作为请求参数发送到站点页面存在漏洞的地方（通常是搜索框），然后脚本反射（出现）在新渲染（或者部分刷新）的页面并执行</strong></p>
+</li>
+<li>
+<p>CSRF 是 Cross-Site Request Forgery (跨站请求伪造)，CSRF 攻击 <strong>通过伪装成受信任用户的请求来利用受信任的网站</strong> ，不管使用什么方法只要是伪造用户发起的请求都可以称为 CSRF 攻击。</p>
+</li>
+</ul>
+<p> 综上，面试的过程，通常还是看对 基础知识和原理 的理解和总结。常用的注入工具也没怎么问，要问肯定也是工具某个命令的原理之类的。倒是我简历写的Docker方面的东西，面试官似乎都很感兴趣，想让我说出一些docker逃逸之类的东西😵‍💫。</p>
+<h3 id="0X02-未来一周的Todo"><a class="header-anchor" href="#0X02-未来一周的Todo"></a>0X02 未来一周的Todo</h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 尝试去补天，漏洞盒子公益项目挖洞</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学过的基础知识总结和熟练</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> 学习PHP，JAVA后端开发</li>
+</ul>
+<h3 id="0X03-激励自己和一些牢骚"><a class="header-anchor" href="#0X03-激励自己和一些牢骚"></a>0X03 激励自己和一些牢骚</h3>
+<blockquote>
+<p>好像越来越喜欢安静了，青轴的清脆让我觉得是噪音，不喜欢边听歌边干别的事情，让人感觉烦躁</p>
+<p>TK和yaunge的一些话</p>
+</blockquote>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/TODO/yuange.jpg" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://qaq233.oss-cn-hongkong.aliyuncs.com/POST/TODO/tk.jpg" srcset="/img/loading.gif" alt=""></p>
 
             </div>
             <hr>
@@ -264,19 +275,10 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/CTF/">CTF</a>
-                    
-                      <a class="hover-with-bg" href="/categories/CTF/Web%E6%B8%97%E9%80%8F/">Web渗透</a>
+                      <a class="hover-with-bg" href="/categories/Todo/">Todo</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a>
-                    
-                  </div>
                 
               </div>
               
@@ -287,18 +289,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/01/todo_reflct/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Todo近一个月的反思和总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/19/http-base/">
-                        <span class="hidden-mobile">HTTP基础</span>
+                      <a href="/2021/01/20/ctfhub-sqli/">
+                        <span class="hidden-mobile">Ctfhub_SQL注入</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
